@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from "@testing-library/react";
-import PodcastItem from './podcast-item';
+import PodcastCard from './podcast-card';
 import { PodcastImage } from '../../model';
 
 const IMG: PodcastImage = {
@@ -12,14 +12,16 @@ const IMG: PodcastImage = {
 
 const NAME: string = "Podcast Mock";
 const ARTIST: string = "Centryck";
+const DESCRIPTION: string = "podcast description"
 
 const renderElement = () => {
-	const utils = render(<PodcastItem image={IMG} name={NAME} artist={ARTIST} />);
+	const utils = render(<PodcastCard image={IMG} name={NAME} artist={ARTIST} description={DESCRIPTION}/>);
 
 	const query = {
-		roundedImg: () => screen.queryByAltText(NAME),
-		podcastName: () => screen.queryByText("PODCAST MOCK"),
-		podcastArtist: () => screen.queryByText("Author: "+ARTIST),
+		cardImg: () => screen.queryByAltText(NAME),
+		podcastName: () => screen.queryByText(NAME),
+		podcastArtist: () => screen.queryByText("by "+ARTIST),
+		podcastDescription: () => screen.queryByText(DESCRIPTION),
 	}
 
 	return {
@@ -28,13 +30,14 @@ const renderElement = () => {
 	}
 }
 
-describe("PodcastItem", () => {
+describe("PodcastCard", () => {
 	it("renders all the items by default", () => {
 
 		const { query } = renderElement();
 
-		expect(query.roundedImg()).not.toBeNull();
+		expect(query.cardImg()).not.toBeNull();
 		expect(query.podcastName()).not.toBeNull();
 		expect(query.podcastArtist()).not.toBeNull();
+		expect(query.podcastDescription()).not.toBeNull();
 	})
 })
