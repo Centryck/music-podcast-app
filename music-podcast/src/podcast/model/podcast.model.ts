@@ -2,7 +2,7 @@ export interface ImageAttributes {
 	height: string;
 }
 
-export interface Image {
+export interface PodcastImage {
 	label: string;
 	attributes: ImageAttributes;
 }
@@ -10,7 +10,7 @@ export interface Image {
 export interface Podcast {
 	id: string;
 	name: string;
-	image: Image[];
+	image: PodcastImage[];
 	summary: string;
 	rights: string;
 	title: string;
