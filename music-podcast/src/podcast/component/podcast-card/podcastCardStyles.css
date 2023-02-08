@@ -1,37 +1,58 @@
 .podcastCardContainer {
-	position: relative;
-	padding-top: 40px;
-}
-
-.podcastCard {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	width: 200px;
-	text-align: center;
-	padding-top: 40px;
-	padding-bottom: 12px;
-	padding-right: 16px;
-	padding-left: 16px;
-	border-radius: 3px;
+	justify-content: center;
+	width: 250px;
+	padding-top: 16px;
+	padding-bottom: 16px;
+	padding-left: 8px;
+	padding-right: 8px;
+	border-radius: 6px;
 	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.19);
 }
 
-.roundedImage {
-	border-radius: 50px;
-	position: absolute;
-	border: 1px solid rgba(0, 0, 0, 0.1);
-	top: 0;
+.cardImage {
+	align-self: center;
+	border-radius: 6px;
+	margin-bottom: 12px;
 }
 
-.podcastName {
-	margin-top: 4px;
-	margin-bottom: 4px;
+.podcastCardTitleBlock {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+	padding-top: 16px;
+	padding-bottom: 16px;
+	border-bottom: 1px solid #eee;
+	border-top: 1px solid #eee;
+	margin-bottom: 16px;
 }
 
-.podcastAuthor {
-	color: rgb(112, 112, 112);
-	font-size: small;
+.podcastCardDescriptionBlock {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+}
 
-	margin-top: 8px;
+.podcastNameCard {
+	font-weight: 500;
+}
+
+.podcastArtistCard {
+	font-size: smaller;
+	font-style: italic;
+	font-weight: 400;
+}
+
+.podcastDescriptionLabel {
+	font-size: smaller;
+	font-weight: bolder;
+	margin-bottom: 8px;
+}
+
+.podcastDescriptionText {
+	font-size: smaller;
+	font-style: italic;
 }

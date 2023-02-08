@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from "@testing-library/react";
-import PodcastCard from './podcast-card';
+import PodcastCard from './podcast-item';
 import { PodcastImage } from '../../model';
 
 const IMG: PodcastImage = {
