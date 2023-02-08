@@ -1,5 +1,5 @@
 export interface ImageAttributes {
-	height: number;
+	height: string;
 }
 
 export interface Image {
@@ -15,5 +15,9 @@ export interface Podcast {
 	rights: string;
 	title: string;
 	artist: string;
+}
+
+export interface RawPodcast {
+	podcast: Podcast[];
 }
 
