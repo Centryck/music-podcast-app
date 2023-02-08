@@ -1,10 +1,10 @@
 import { Podcast, RawPodcast } from "../model";
 
 export interface Entry {
-	name: {
+	"im:name": {
 		label: string;
 	};
-	image: [{
+	"im:image": [{
 		label: string;
 		attributes: {
 			height: string;
@@ -13,14 +13,14 @@ export interface Entry {
 	summary: {
 		label: string;
 	};
-	price: {
+	"im:price": {
 		label: string;
 		attributes: {
 			amount: string;
 			currency: string;
 		};
 	};
-	contentType: {
+	"im:contentType": {
 		attributes: {
 			term: string;
 			label: string;
@@ -42,10 +42,10 @@ export interface Entry {
 	id: {
 		label: string;
 		attributes: {
-			id: string;
+		"im:id": string;
 		};
 	};
-	artist: {
+	"im:artist": {
 		label: string;
 		attributes: {
 			href: string;
@@ -53,13 +53,13 @@ export interface Entry {
 	};
 	category: {
 		attributes: {
-			id: string;
+			"im:id": string;
 			term: string;
 			scheme: string;
 			label: string;
 		};
 	};
-	releaseDate: {
+	"im:releaseDate": {
 		label: Date;
 		attributes: {
 			label: string;
@@ -85,13 +85,13 @@ type Mapper<BackendType, MappedType> = (input: BackendType) => MappedType;
 
 export const mapPodcast: Mapper<Entry, Podcast> = input => {
 	return {
-			id: input.id.attributes.id,
-			name: input.name.label,
-			image: input.image,
-			summary: input.summary.label,
-			rights: input.rights.label,
+			id: input.id.attributes["im:id"],
+			name: input["im:name"]?.label,
+			image: input["im:image"],
+			summary: input.summary?.label,
+			rights: input.rights?.label,
 			title: input.title.label,
-			artist: input.artist.label
+			artist: input["im:artist"]?.label
 	}
 }
 

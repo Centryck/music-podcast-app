@@ -1,10 +1,11 @@
 import { getPodcastsEndpoint } from "../endpoint/get-podcasts.endpoint";
 import { mapPodcastsFromItunes } from "../mapper";
-import { RawPodcast } from "../model";
+import { LocalStoragePodcast, RawPodcast } from "../model";
 
-type GetPodcasts = () => Promise<RawPodcast>;
+type GetPodcastsFromAPI = () => Promise<RawPodcast>;
+type GetPodcastsFromLocalStorage = () => Promise<LocalStoragePodcast>
 
-export const getPodcastsFromItunes: GetPodcasts = async () => {
+export const getPodcastsFromItunes: GetPodcastsFromAPI = async () => {
 	try {
 		return await getPodcastsEndpoint().then((data) => {
 			return mapPodcastsFromItunes(data);
@@ -14,4 +15,8 @@ export const getPodcastsFromItunes: GetPodcasts = async () => {
 		console.error(err);
 		throw new Error("Error at retrieving the podcasts");
 	}
+}
+
+export const getPodcastsFromLocalStorage: GetPodcastsFromLocalStorage = () => {
+	return Promise.resolve(JSON.parse(localStorage.getItem("podcasts")!));
 }
