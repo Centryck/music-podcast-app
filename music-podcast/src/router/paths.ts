@@ -1,5 +1,7 @@
-export enum Paths {
+enum Paths {
 	Home = "/",
 	PodcastDetails = "/podcast/:podcastId",
-	EpisodeDetails = "/episode/:podcastId/episode/:episodeId"
+	EpisodeDetails = "/podcast/:podcastId/episode/:episodeId"
 }
+
+export default Paths
