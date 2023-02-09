@@ -1,5 +1,6 @@
 import React from "react";
 import cn from 'classnames';
+import "./badgeStyles.css";
 
 export interface BadgeProps {
 	className?: string;
@@ -8,7 +9,7 @@ export interface BadgeProps {
 
 const Badge: React.FC<BadgeProps> = ({
 	className = "",
-	value
+	value = ""
 }) => {
 
 	const classNames = cn(
@@ -18,7 +19,7 @@ const Badge: React.FC<BadgeProps> = ({
 
 	return (
 		<div className={classNames} data-testid="badge">
-			{value}
+			<p>{value}</p>
 		</div>
 	)
 }
