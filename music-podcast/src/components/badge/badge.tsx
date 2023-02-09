@@ -19,7 +19,7 @@ const Badge: React.FC<BadgeProps> = ({
 
 	return (
 		<div className={classNames} data-testid="badge">
-			<p>{value}</p>
+			<span>{value}</span>
 		</div>
 	)
 }
