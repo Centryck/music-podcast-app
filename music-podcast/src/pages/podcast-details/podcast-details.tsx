@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import Header from '../../components/header';
 import EpisodeList from '../../episode/component/episode-list';
 import { Episode } from '../../episode/model';
@@ -10,10 +10,8 @@ import { getPodcastById } from '../../podcast/use-case';
 import "./podcastDetailsStyles.css";
 
 const PodcastDetails = () => {
-	const location = useLocation();
 
-	const url = location.pathname;
-	const podcastId = url.split('/').pop();
+	const { podcastId } = useParams();
 
 	const [episodes, setEpisodes] = useState<Episode[] | undefined>(undefined);
 	const [podcast, setPodcast] = useState<Podcast | undefined>(undefined);
