@@ -2,7 +2,7 @@ import React from 'react';
 import Badge from '../badge';
 import "./filterStyles.css";
 
-interface FilterComponentProps {
+export interface FilterComponentProps {
 	podcastNumber?: string;
 	onChange: (filterText: string) => void;
 }

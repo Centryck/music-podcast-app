@@ -17,7 +17,7 @@ const PodcastCard: React.FC<PodcastCardProps> = ({ image, name, artist, descript
 
 	return (
 		<div className="podcastCardContainer">
-			<Link to={`/podcast/${id}`} className={"cardImageContainer"}>
+			<Link to={`/podcast/${id}`} className={"cardImageContainer"} data-testid="podcast-details-photo-url">
 				<img
 					src={imageUrl}
 					alt={name}
@@ -26,7 +26,7 @@ const PodcastCard: React.FC<PodcastCardProps> = ({ image, name, artist, descript
 					className={"cardImage"}
 				/>
 			</Link>
-			<Link to={`/podcast/${id}`} className={"podcastCardTitleBlock"}>
+			<Link to={`/podcast/${id}`} className={"podcastCardTitleBlock"} data-testid="podcast-details-text-url">
 				<span className="podcastNameCard">{name}</span>
 				<span className="podcastArtistCard">by {artist}</span>
 			</Link>

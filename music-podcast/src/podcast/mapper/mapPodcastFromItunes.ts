@@ -83,7 +83,7 @@ export interface ItunesPodcast {
 
 type Mapper<BackendType, MappedType> = (input: BackendType) => MappedType;
 
-export const mapPodcast: Mapper<Entry, Podcast> = input => {
+const mapPodcast: Mapper<Entry, Podcast> = input => {
 	return {
 			id: input.id.attributes["im:id"],
 			name: input["im:name"]?.label,
@@ -95,7 +95,7 @@ export const mapPodcast: Mapper<Entry, Podcast> = input => {
 	}
 }
 
-export const mapPodcasts = (podcasts: Entry[]): Podcast[] => 
+const mapPodcasts = (podcasts: Entry[]): Podcast[] => 
 podcasts.map(mapPodcast).map((podcast, index) => {
 	return {
 		...podcast,
