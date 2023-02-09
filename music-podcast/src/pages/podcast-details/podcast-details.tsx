@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation } from "react-router-dom"
+import Header from '../../components/header';
 import EpisodeList from '../../episode/component/episode-list';
 import { Episode } from '../../episode/model';
 import { getAllEpisodes } from '../../episode/use-case';
@@ -16,6 +17,7 @@ const PodcastDetails = () => {
 
 	const [episodes, setEpisodes] = useState<Episode[] | undefined>(undefined);
 	const [podcast, setPodcast] = useState<Podcast | undefined>(undefined);
+	const [isLoading, setIsLoading] = useState(false);
 
 	useEffect(() => {
 		if (podcastId) {
@@ -35,26 +37,39 @@ const PodcastDetails = () => {
 		})
 	}, [podcastId]);
 
+	useEffect(() => {
+		setIsLoading(true);
+
+		if (episodes && podcast) {
+			setIsLoading(false);
+		}
+	}, [episodes, podcast])
+
 	return (
-		<div className='podcastDetailsContainer'>
-			{
-				podcast &&
-				<div>
-					<PodcastCard
-						image={podcast.image[2]}
-						name={podcast.name}
-						artist={podcast.artist}
-						description={podcast.summary}
-						id={podcast.id}
-					/>
-				</div>
-			}
-			{
-				episodes &&
-				<div className="listContainer">
-					<EpisodeList episodes={episodes} />
-				</div>
-			}
+		<div>
+			<Header isLoading={isLoading} />
+
+			<div className='podcastDetailsContainer'>
+
+				{
+					podcast &&
+					<div>
+						<PodcastCard
+							image={podcast.image[2]}
+							name={podcast.name}
+							artist={podcast.artist}
+							description={podcast.summary}
+							id={podcast.id}
+						/>
+					</div>
+				}
+				{
+					episodes &&
+					<div className="listContainer">
+						<EpisodeList episodes={episodes} />
+					</div>
+				}
+			</div>
 		</div>
 	)
 }
