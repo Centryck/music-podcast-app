@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Episode } from '../../model';
 import "./episodeListStyles.css";
 
@@ -9,6 +10,8 @@ interface EpisodeListItemProps {
 const EpisodeListItem: React.FC<EpisodeListItemProps> = ({episode}) => {
 
 	const {name, releaseDate, trackTimeMillis} = episode;
+
+	const episodeUrl = `/podcast/${episode.collectionId}/episode/${episode.id}`;
 
 	const parsedDate = () => {
 		const date = new Date(releaseDate)
@@ -34,7 +37,7 @@ const EpisodeListItem: React.FC<EpisodeListItemProps> = ({episode}) => {
 
 	return (
 		<div className="episodeItemContainer">
-			<span className="episodeTitle">{name}</span>
+			<Link to={episodeUrl} className="episodeTitle">{name}</Link>
 			<div className="dataContainer">
 			<span>{parsedDate()}</span>
 			<span>{parsedTimeMillis()}</span>

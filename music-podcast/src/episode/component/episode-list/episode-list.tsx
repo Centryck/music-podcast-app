@@ -15,7 +15,7 @@ const EpisodeList: React.FC<EpisodeListProps> = ({ episodes }) => {
 
 		<div className="episodeListData">
 			<div className="episodeItemContainer">
-				<strong className="episodeTitle">Title</strong>
+				<strong className="episodeListTitle">Title</strong>
 				<div className="dataContainer">
 					<strong>Date</strong>
 					<strong>Duration</strong>
