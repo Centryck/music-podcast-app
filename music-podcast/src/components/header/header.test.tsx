@@ -28,9 +28,8 @@ describe("Header", () => {
 	it("should render the title as a link to '/'", () => {
 		const {query} = renderElement();
 
-    const title = query.title();
-    expect(title).not.toBeNull();
-    expect(title).toHaveAttribute('href', '/');		
+    expect(query.title()).not.toBeNull();
+    expect(query.title()).toHaveAttribute('href', '/');
 	})
 
 	it("should render the loading badge if isLoading is true", () => {
