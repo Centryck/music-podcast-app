@@ -1,5 +1,6 @@
 import React from 'react';
 import { Episode } from '../../model';
+import "./episodeListStyles.css";
 
 interface EpisodeListItemProps {
 	episode: Episode;
@@ -15,7 +16,7 @@ const EpisodeListItem: React.FC<EpisodeListItemProps> = ({episode}) => {
 		const month = date.getMonth();
 		const day = date.getDate();
 
-		return `${year}/${month + 1}/${day}`
+		return `${day}/${month + 1}/${year}`
 	}
 
 	const parsedTimeMillis = () => {
@@ -32,10 +33,12 @@ const EpisodeListItem: React.FC<EpisodeListItemProps> = ({episode}) => {
 	}
 
 	return (
-		<div>
-			<span>{name}</span>
+		<div className="episodeItemContainer">
+			<span className="episodeTitle">{name}</span>
+			<div className="dataContainer">
 			<span>{parsedDate()}</span>
 			<span>{parsedTimeMillis()}</span>
+			</div>
 		</div>
 	)
 }

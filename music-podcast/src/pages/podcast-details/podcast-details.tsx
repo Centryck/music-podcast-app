@@ -6,7 +6,7 @@ import { getAllEpisodes } from '../../episode/use-case';
 import PodcastCard from '../../podcast/component/podcast-card';
 import { Podcast } from '../../podcast/model';
 import { getSinglePodcast } from '../../podcast/service';
-
+import "./podcastDetailsStyles.css";
 
 const PodcastDetails = () => {
 	const location = useLocation();
@@ -39,16 +39,20 @@ const PodcastDetails = () => {
 		<div className='podcastDetailsContainer'>
 			{
 				podcast &&
-				<PodcastCard
-					image={podcast.image[2]}
-					name={podcast.name}
-					artist={podcast.artist}
-					description={podcast.summary}
-				/>
+				<div>
+					<PodcastCard
+						image={podcast.image[2]}
+						name={podcast.name}
+						artist={podcast.artist}
+						description={podcast.summary}
+					/>
+				</div>
 			}
 			{
 				episodes &&
-				<EpisodeList episodes={episodes} />
+				<div className="listContainer">
+					<EpisodeList episodes={episodes} />
+				</div>
 			}
 		</div>
 	)
