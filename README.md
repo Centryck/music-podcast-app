@@ -21,3 +21,6 @@ To view it in the browser, go to the following url http://localhost:3000
 ### `yarn test --coverage`
 
 Runs the testing coverage
+
+To get the last 100 podcast, it is necesary to go first to this url:\
+https://cors-anywhere.herokuapp.com/
