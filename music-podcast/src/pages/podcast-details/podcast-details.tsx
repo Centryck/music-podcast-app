@@ -6,7 +6,7 @@ import { Episode } from '../../episode/model';
 import { getAllEpisodes } from '../../episode/use-case';
 import PodcastCard from '../../podcast/component/podcast-card';
 import { Podcast } from '../../podcast/model';
-import { getSinglePodcast } from '../../podcast/service';
+import { getPodcastById } from '../../podcast/use-case';
 import "./podcastDetailsStyles.css";
 
 const PodcastDetails = () => {
@@ -21,7 +21,7 @@ const PodcastDetails = () => {
 
 	useEffect(() => {
 		if (podcastId) {
-			getSinglePodcast(podcastId).then((data) => {
+			getPodcastById(podcastId).then((data) => {
 				setPodcast(data[0])
 			})
 		}
