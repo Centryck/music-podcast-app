@@ -45,6 +45,7 @@ const PodcastDetails = () => {
 						name={podcast.name}
 						artist={podcast.artist}
 						description={podcast.summary}
+						id={podcast.id}
 					/>
 				</div>
 			}

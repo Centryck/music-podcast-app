@@ -13,9 +13,10 @@ const IMG: PodcastImage = {
 const NAME: string = "Podcast Mock";
 const ARTIST: string = "Centryck";
 const DESCRIPTION: string = "podcast description"
+const ID: string = "123456"
 
 const renderElement = () => {
-	const utils = render(<PodcastCard image={IMG} name={NAME} artist={ARTIST} description={DESCRIPTION}/>);
+	const utils = render(<PodcastCard image={IMG} name={NAME} artist={ARTIST} description={DESCRIPTION} id={ID}/>);
 
 	const query = {
 		cardImg: () => screen.queryByAltText(NAME),
