@@ -1,33 +1,43 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { PodcastImage } from '../../model';
-import "./podcastCardStyles.css";
+import "./podcastCardStyles.css"
 
 interface PodcastCardProps {
 	image: PodcastImage;
 	name: string;
 	artist: string;
-}
+	description: string;
+	id: string;
+};
 
-const PodcastCard: React.FC<PodcastCardProps> = ({ image, name, artist }) => {
+const PodcastCard: React.FC<PodcastCardProps> = ({ image, name, artist, description, id }) => {
 
-	const nameInUpperCase = name.toUpperCase();
 	const imageUrl = image.label;
 
 	return (
 		<div className="podcastCardContainer">
-			<div className="podcastCard">
+			<Link to={`/podcast/${id}`} className={"cardImageContainer"}>
 				<img
 					src={imageUrl}
 					alt={name}
-					height={80}
-					width={80}
-					className={"roundedImage"}
+					height={170}
+					width={170}
+					className={"cardImage"}
 				/>
-				<span className="podcastName">{nameInUpperCase}</span>
-				<span className="podcastAuthor">Author: {artist}</span>
+			</Link>
+			<Link to={`/podcast/${id}`} className={"podcastCardTitleBlock"}>
+				<span className="podcastNameCard">{name}</span>
+				<span className="podcastArtistCard">by {artist}</span>
+			</Link>
+
+
+			<div className="podcastCardDescriptionBlock">
+				<span className="podcastDescriptionLabel">Description:</span>
+				<span className="podcastDescriptionText">{description}</span>
 			</div>
 		</div>
 	)
-};
+}
 
 export default PodcastCard;
