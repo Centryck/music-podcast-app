@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from "react-router-dom"
+import EpisodeList from '../../episode/component/episode-list';
 import { Episode } from '../../episode/model';
 import { getAllEpisodes } from '../../episode/use-case';
 import PodcastCard from '../../podcast/component/podcast-card';
@@ -24,7 +25,7 @@ const PodcastDetails = () => {
 	}, []);
 
 	return (
-		<div className='podcastDetails-container'>
+		<div className='podcastDetailsContainer'>
 			<PodcastCard
 				image={podcast.image[2]}
 				name={podcast.name}
@@ -32,8 +33,8 @@ const PodcastDetails = () => {
 				description={podcast.summary}
 			/>
 			{
-				episodes &&
-				episodes.map((episode) => <div key={episode.id}>{episode.name}</div>)
+			episodes &&
+			<EpisodeList episodes={ episodes } />
 			}
 		</div>
 	)
