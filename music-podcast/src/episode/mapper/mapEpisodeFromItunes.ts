@@ -6,7 +6,7 @@ interface EpisodeGenre {
   id: string;
 }
 
-export interface ItunesEpisode extends Partial<DetailedItunesPodcast>{
+export interface ItunesEpisode extends Partial<DetailedItunesPodcast> {
   country: string;
   previewUrl?: string;
   artistIds?: number[];
@@ -36,33 +36,33 @@ export interface ItunesEpisode extends Partial<DetailedItunesPodcast>{
 }
 
 export interface EpisodeResult {
-	resultCount: number;
-	results: ItunesEpisode[];
+  resultCount: number;
+  results: ItunesEpisode[];
 }
 
 type Mapper<BackendType, MappedType> = (input: BackendType) => MappedType;
 
-export const mapEpisode: Mapper<ItunesEpisode, Episode> = input => {
-	return {
-		id: input.trackId,
-		name: input.trackName,
-		description: input.description,
-		releaseDate: input.releaseDate,
-		collectionId: input.collectionId,
-		trackTimeMillis: input.trackTimeMillis,
-		episodeUrl: input.episodeUrl,
-		collectionName: input.collectionName
-	}
+const mapEpisode: Mapper<ItunesEpisode, Episode> = input => {
+  return {
+    id: input.trackId,
+    name: input.trackName,
+    description: input.description,
+    releaseDate: input.releaseDate,
+    collectionId: input.collectionId,
+    trackTimeMillis: input.trackTimeMillis,
+    episodeUrl: input.episodeUrl,
+    collectionName: input.collectionName
+  }
 }
 
-export const mapEpisodes = (episodes: ItunesEpisode[]): Episode[] => 
-	episodes.map(mapEpisode).map((episode, index) => {
-	return {
-		...episode,
-		index,
-	}
-	})
+const mapEpisodes = (episodes: ItunesEpisode[]): Episode[] =>
+  episodes.map(mapEpisode).map((episode, index) => {
+    return {
+      ...episode,
+      index,
+    }
+  })
 
 export const mapEpisodesResults: Mapper<EpisodeResult, Episode[]> = input => {
-	return mapEpisodes(input.results)
+  return mapEpisodes(input.results)
 }

@@ -15,7 +15,7 @@ const EpisodeListItem: React.FC<EpisodeListItemProps> = ({episode}) => {
 		const month = date.getMonth();
 		const day = date.getDate();
 
-		return `${year}/${month + 1}/${day} ||`
+		return `${year}/${month + 1}/${day}`
 	}
 
 	const parsedTimeMillis = () => {

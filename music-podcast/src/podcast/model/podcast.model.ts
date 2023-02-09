@@ -1,4 +1,4 @@
-export interface ImageAttributes {
+interface ImageAttributes {
 	height: string;
 }
 

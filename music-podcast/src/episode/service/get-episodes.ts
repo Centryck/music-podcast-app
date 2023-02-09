@@ -7,7 +7,6 @@ type GetEpisodesFromAPI = (podcastId: number) => Promise<Episode[]>;
 export const getEpisodesFromItunes: GetEpisodesFromAPI = async (podcastId: number) => {
 	try {
 		return await getEpisodesEndpoint(podcastId).then((data) => {
-			console.log(data)
 			return mapEpisodesResults(data);
 		})
 	}

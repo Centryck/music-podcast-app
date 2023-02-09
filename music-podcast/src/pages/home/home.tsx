@@ -24,7 +24,7 @@ const Home = () => {
 					podcasts.map((podcast) =>
 						<Link
 							to={`/podcast/${podcast.id}`}
-							state={{podcast: JSON.stringify(podcast)}}
+							state={{podcastId: podcast.id}}
 							key={podcast.id}
 							className={"podcastListItem"}
 						>

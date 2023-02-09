@@ -16,7 +16,7 @@ const EpisodeList: React.FC<EpisodeListProps> = ({ episodes }) => {
 				<span>Duration</span>
 			</div>
 			{
-				episodes.map(episode => {return <EpisodeListItem episode={episode} key={episode.id} />})
+				episodes.map(episode =>  <EpisodeListItem episode={episode} key={episode.id} />)
 			}
 		</div>
 	)
