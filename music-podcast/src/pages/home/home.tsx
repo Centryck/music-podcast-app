@@ -1,26 +1,20 @@
 import { useEffect, useState } from 'react';
 import { Podcast } from '../../podcast/model';
-import * as PodcastActions from "../../podcast/use-case";
 import { Link } from "react-router-dom";
 import "./homeStyles.css";
 import PodcastItem from '../../podcast/component/podcast-item';
 import Header from '../../components/header';
 import FilterComponent from '../../components/filter';
+import { useAllPodcasts } from '../../podcast/hook';
 
 const Home = () => {
-	const [podcasts, setPodcasts] = useState<Podcast[] | undefined>();
+	const [podcasts, , isLoading] = useAllPodcasts();
 	const [currentPodcasts, setCurrentPodcasts] = useState<Podcast[] | undefined>()
-	const [isLoading, setIsLoading] = useState(false);
 
 	useEffect(() => {
-		setIsLoading(true);
-		PodcastActions.getAllPodcasts().then((data) => {
-			setPodcasts(data.podcast);
-			setCurrentPodcasts(data.podcast);
-			setIsLoading(false);
-		})
-	}, []);
-
+		setCurrentPodcasts(podcasts);
+	}, [podcasts])
+	
 	const handleChangeFilterText = (text: string) => {
 		const filterText = text.toLowerCase();
 

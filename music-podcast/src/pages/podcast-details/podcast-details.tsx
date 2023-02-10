@@ -1,51 +1,21 @@
-import { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom"
 import Header from '../../components/header';
 import EpisodeList from '../../episode/component/episode-list';
-import { Episode } from '../../episode/model';
-import { getAllEpisodes } from '../../episode/use-case';
+import { useAllEpisodes } from '../../episode/hook';
 import PodcastCard from '../../podcast/component/podcast-card';
-import { Podcast } from '../../podcast/model';
-import { getPodcastById } from '../../podcast/use-case';
+import { useSinglePodcast } from '../../podcast/hook';
 import "./podcastDetailsStyles.css";
 
 const PodcastDetails = () => {
 
 	const { podcastId } = useParams();
 
-	const [episodes, setEpisodes] = useState<Episode[] | undefined>(undefined);
-	const [podcast, setPodcast] = useState<Podcast | undefined>(undefined);
-	const [isLoading, setIsLoading] = useState(false);
-
-	useEffect(() => {
-		if (podcastId) {
-			getPodcastById(podcastId).then((data) => {
-				setPodcast(data[0])
-			})
-		}
-	}, [podcastId])
-
-	useEffect(() => {
-		getAllEpisodes(Number(podcastId)).then((data) => {
-
-			//This because the first object is some data from the podcast that we already have
-			data.shift();
-
-			setEpisodes(data);
-		})
-	}, [podcastId]);
-
-	useEffect(() => {
-		setIsLoading(true);
-
-		if (episodes && podcast) {
-			setIsLoading(false);
-		}
-	}, [episodes, podcast])
+	const [episodes, , isLoadingEpisodes] = useAllEpisodes(podcastId);  
+	const [podcast, , isLoadingPodcast] = useSinglePodcast(podcastId!);
 
 	return (
 		<div>
-			<Header isLoading={isLoading} />
+			<Header isLoading={isLoadingEpisodes || isLoadingPodcast} />
 
 			<div className='podcastDetailsContainer'>
 
