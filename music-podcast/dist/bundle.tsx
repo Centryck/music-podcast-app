@@ -670,7 +670,7 @@ if (true) {
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = function(chunkId) {
 /******/ 			// return url for filenames based on template
-/******/ 			return "bundle." + "0b223cb70ca60ceac2f3" + ".tsx";
+/******/ 			return "" + chunkId + ".bundle.tsx";
 /******/ 		};
 /******/ 	}();
 /******/ 	
@@ -681,18 +681,6 @@ if (true) {
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
-/******/ 	}();
-/******/ 	
-/******/ 	/* webpack/runtime/global */
-/******/ 	!function() {
-/******/ 		__webpack_require__.g = (function() {
-/******/ 			if (typeof globalThis === 'object') return globalThis;
-/******/ 			try {
-/******/ 				return this || new Function('return this')();
-/******/ 			} catch (e) {
-/******/ 				if (typeof window === 'object') return window;
-/******/ 			}
-/******/ 		})();
 /******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
@@ -758,22 +746,7 @@ if (true) {
 /******/ 	
 /******/ 	/* webpack/runtime/publicPath */
 /******/ 	!function() {
-/******/ 		var scriptUrl;
-/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
-/******/ 		var document = __webpack_require__.g.document;
-/******/ 		if (!scriptUrl && document) {
-/******/ 			if (document.currentScript)
-/******/ 				scriptUrl = document.currentScript.src
-/******/ 			if (!scriptUrl) {
-/******/ 				var scripts = document.getElementsByTagName("script");
-/******/ 				if(scripts.length) scriptUrl = scripts[scripts.length - 1].src
-/******/ 			}
-/******/ 		}
-/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
-/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
-/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
-/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
-/******/ 		__webpack_require__.p = scriptUrl;
+/******/ 		__webpack_require__.p = "/";
 /******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/jsonp chunk loading */
@@ -5276,7 +5249,7 @@ function useOutlet(context) {
 function useParams() {
   let {
     matches
-  } = React.useContext(RouteContext);
+  } = react.useContext(RouteContext);
   let routeMatch = matches[matches.length - 1];
   return routeMatch ? routeMatch.params : {};
 }
@@ -7222,6 +7195,111 @@ function dist_warning(cond, message) {
 
 
 //# sourceMappingURL=index.js.map
+
+;// CONCATENATED MODULE: ./src/podcast/component/podcast-item/podcast-item.tsx
+var __assign = (undefined && undefined.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+
+
+var PodcastItem = function (_a) {
+    var image = _a.image, name = _a.name, artist = _a.artist;
+    var nameInUpperCase = name.toUpperCase();
+    var imageUrl = image.label;
+    return ((0,jsx_runtime.jsx)("div", __assign({ className: "podcastItemContainer" }, { children: (0,jsx_runtime.jsxs)("div", __assign({ className: "podcastItem" }, { children: [(0,jsx_runtime.jsx)("img", { src: imageUrl, alt: name, height: 80, width: 80, className: "roundedImage" }), (0,jsx_runtime.jsx)("span", __assign({ className: "podcastItemName" }, { children: nameInUpperCase })), (0,jsx_runtime.jsxs)("span", __assign({ className: "podcastItemAuthor" }, { children: ["Author: ", artist] }))] })) })));
+};
+/* harmony default export */ var podcast_item = (PodcastItem);
+
+;// CONCATENATED MODULE: ./src/podcast/component/podcast-item/index.ts
+
+
+// EXTERNAL MODULE: ./node_modules/classnames/index.js
+var classnames = __webpack_require__(184);
+var classnames_default = /*#__PURE__*/__webpack_require__.n(classnames);
+;// CONCATENATED MODULE: ./src/components/badge/badge.tsx
+var badge_assign = (undefined && undefined.__assign) || function () {
+    badge_assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return badge_assign.apply(this, arguments);
+};
+
+
+
+var Badge = function (_a) {
+    var _b = _a.className, className = _b === void 0 ? "" : _b, _c = _a.value, value = _c === void 0 ? "" : _c;
+    var classNames = classnames_default()("Badge", className.split(" "));
+    return ((0,jsx_runtime.jsx)("div", badge_assign({ className: classNames, "data-testid": "badge" }, { children: (0,jsx_runtime.jsx)("span", { children: value }) })));
+};
+/* harmony default export */ var badge = (Badge);
+
+;// CONCATENATED MODULE: ./src/components/badge/index.ts
+
+
+
+;// CONCATENATED MODULE: ./src/components/header/header.tsx
+var header_assign = (undefined && undefined.__assign) || function () {
+    header_assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return header_assign.apply(this, arguments);
+};
+
+
+
+
+var Header = function (_a) {
+    var isLoading = _a.isLoading;
+    return ((0,jsx_runtime.jsxs)("div", header_assign({ className: "headerContainer" }, { children: [(0,jsx_runtime.jsx)(Link, header_assign({ to: "/", className: "headerTitle" }, { children: "Podcaster" })), isLoading && (0,jsx_runtime.jsx)(badge, { className: 'loadingBadge' })] })));
+};
+/* harmony default export */ var header = (Header);
+
+;// CONCATENATED MODULE: ./src/components/header/index.ts
+
+
+
+;// CONCATENATED MODULE: ./src/components/filter/filter.tsx
+var filter_assign = (undefined && undefined.__assign) || function () {
+    filter_assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return filter_assign.apply(this, arguments);
+};
+
+
+
+var FilterComponent = function (_a) {
+    var _b = _a.podcastNumber, podcastNumber = _b === void 0 ? "0" : _b, onChange = _a.onChange;
+    return ((0,jsx_runtime.jsxs)("div", filter_assign({ className: "filterContainer" }, { children: [(0,jsx_runtime.jsx)(badge, { value: podcastNumber, className: "podcastNumBadge" }), (0,jsx_runtime.jsx)("input", { type: "text", onChange: function (e) { return onChange(e.currentTarget.value); }, placeholder: "Filter podcasts...", className: 'filterInput' })] })));
+};
+/* harmony default export */ var filter = (FilterComponent);
+
+;// CONCATENATED MODULE: ./src/components/filter/index.ts
+
+
 
 ;// CONCATENATED MODULE: ./node_modules/axios/lib/helpers/bind.js
 
@@ -10718,8 +10796,8 @@ var getPodcastsEndpoint = function () { return __awaiter(void 0, void 0, void 0,
 }); };
 
 ;// CONCATENATED MODULE: ./src/podcast/mapper/mapPodcastFromItunes.ts
-var __assign = (undefined && undefined.__assign) || function () {
-    __assign = Object.assign || function(t) {
+var mapPodcastFromItunes_assign = (undefined && undefined.__assign) || function () {
+    mapPodcastFromItunes_assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -10727,7 +10805,7 @@ var __assign = (undefined && undefined.__assign) || function () {
         }
         return t;
     };
-    return __assign.apply(this, arguments);
+    return mapPodcastFromItunes_assign.apply(this, arguments);
 };
 var mapPodcast = function (input) {
     var _a, _b, _c, _d;
@@ -10743,7 +10821,7 @@ var mapPodcast = function (input) {
 };
 var mapPodcasts = function (podcasts) {
     return podcasts.map(mapPodcast).map(function (podcast, index) {
-        return __assign(__assign({}, podcast), { index: index });
+        return mapPodcastFromItunes_assign(mapPodcastFromItunes_assign({}, podcast), { index: index });
     });
 };
 var mapPodcastsFromItunes = function (input) {
@@ -10812,9 +10890,6 @@ var getPodcastsFromItunes = function () { return get_podcasts_awaiter(void 0, vo
         }
     });
 }); };
-var getPodcastsFromLocalStorage = function () {
-    return Promise.resolve(JSON.parse(localStorage.getItem("podcasts")));
-};
 var getSinglePodcast = function (podcastId) { return get_podcasts_awaiter(void 0, void 0, void 0, function () {
     var allPodcasts, requiredPodcast;
     return get_podcasts_generator(this, function (_a) {
@@ -10837,87 +10912,73 @@ var getSinglePodcast = function (podcastId) { return get_podcasts_awaiter(void 0
 var getAllPodcasts = function () {
     return getPodcastsFromItunes();
 };
+var getPodcastById = function (id) {
+    return getSinglePodcast(id);
+};
 
 ;// CONCATENATED MODULE: ./src/podcast/use-case/index.ts
 
 
-;// CONCATENATED MODULE: ./src/podcast/component/podcast-item/podcast-item.tsx
-var podcast_item_assign = (undefined && undefined.__assign) || function () {
-    podcast_item_assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
+;// CONCATENATED MODULE: ./src/podcast/hook/use-single-podcast.ts
+
+
+var useSinglePodcast = function (podcastId) {
+    var _a = (0,react.useState)(), podcast = _a[0], setPodcast = _a[1];
+    var _b = (0,react.useState)(true), isLoading = _b[0], setIsLoading = _b[1];
+    var dayInMilliseconds = 24 * 60 * 60 * 1000;
+    (0,react.useEffect)(function () {
+        if (!podcastId) {
+            setIsLoading(false);
+            return;
         }
-        return t;
-    };
-    return podcast_item_assign.apply(this, arguments);
-};
-
-
-var PodcastItem = function (_a) {
-    var image = _a.image, name = _a.name, artist = _a.artist;
-    var nameInUpperCase = name.toUpperCase();
-    var imageUrl = image.label;
-    return ((0,jsx_runtime.jsx)("div", podcast_item_assign({ className: "podcastItemContainer" }, { children: (0,jsx_runtime.jsxs)("div", podcast_item_assign({ className: "podcastItem" }, { children: [(0,jsx_runtime.jsx)("img", { src: imageUrl, alt: name, height: 80, width: 80, className: "roundedImage" }), (0,jsx_runtime.jsx)("span", podcast_item_assign({ className: "podcastItemName" }, { children: nameInUpperCase })), (0,jsx_runtime.jsxs)("span", podcast_item_assign({ className: "podcastItemAuthor" }, { children: ["Author: ", artist] }))] })) })));
-};
-/* harmony default export */ var podcast_item = (PodcastItem);
-
-;// CONCATENATED MODULE: ./src/podcast/component/podcast-item/index.ts
-
-
-// EXTERNAL MODULE: ./node_modules/classnames/index.js
-var classnames = __webpack_require__(184);
-var classnames_default = /*#__PURE__*/__webpack_require__.n(classnames);
-;// CONCATENATED MODULE: ./src/components/badge/badge.tsx
-var badge_assign = (undefined && undefined.__assign) || function () {
-    badge_assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
+        var storedPodcast = localStorage.getItem("".concat(podcastId, "-podcast"));
+        var savedPodcast = storedPodcast ? JSON.parse(storedPodcast) : undefined;
+        var timeElapsed = new Date().getTime() - new Date(savedPodcast === null || savedPodcast === void 0 ? void 0 : savedPodcast.date).getTime();
+        if (timeElapsed < dayInMilliseconds) {
+            setPodcast(savedPodcast.podcast);
+            setIsLoading(false);
         }
-        return t;
-    };
-    return badge_assign.apply(this, arguments);
-};
-
-
-
-var Badge = function (_a) {
-    var _b = _a.className, className = _b === void 0 ? "" : _b, _c = _a.value, value = _c === void 0 ? "" : _c;
-    var classNames = classnames_default()("Badge", className.split(" "));
-    return ((0,jsx_runtime.jsx)("div", badge_assign({ className: classNames, "data-testid": "badge" }, { children: (0,jsx_runtime.jsx)("p", { children: value }) })));
-};
-/* harmony default export */ var badge = (Badge);
-
-;// CONCATENATED MODULE: ./src/components/badge/index.ts
-
-
-
-;// CONCATENATED MODULE: ./src/components/header/header.tsx
-var header_assign = (undefined && undefined.__assign) || function () {
-    header_assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
+        else {
+            getPodcastById(podcastId).then(function (data) {
+                setPodcast(data[0]);
+                localStorage.setItem("".concat(podcastId, "-podcast"), JSON.stringify({ date: new Date(), podcast: data[0] }));
+                setIsLoading(false);
+            });
         }
-        return t;
-    };
-    return header_assign.apply(this, arguments);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [podcastId]);
+    return [podcast, setPodcast, isLoading];
 };
+/* harmony default export */ var use_single_podcast = (useSinglePodcast);
+
+;// CONCATENATED MODULE: ./src/podcast/hook/use-all-podcast.ts
 
 
-
-
-var Header = function (_a) {
-    var isLoading = _a.isLoading;
-    return ((0,jsx_runtime.jsxs)("div", header_assign({ className: "headerContainer" }, { children: [(0,jsx_runtime.jsx)(Link, header_assign({ to: "/", className: "headerTitle" }, { children: "Podcaster" })), isLoading && (0,jsx_runtime.jsx)(badge, { className: 'loadingBadge' })] })));
+var useAllPodcasts = function () {
+    var _a = (0,react.useState)([]), podcasts = _a[0], setPodcasts = _a[1];
+    var _b = (0,react.useState)(true), isLoading = _b[0], setIsLoading = _b[1];
+    (0,react.useEffect)(function () {
+        var dayInMilliseconds = 24 * 60 * 60 * 1000;
+        var storedPodcasts = localStorage.getItem('podcasts');
+        var savedPodcasts = storedPodcasts ? JSON.parse(storedPodcasts) : undefined;
+        var timeElapsed = new Date().getTime() - new Date(savedPodcasts === null || savedPodcasts === void 0 ? void 0 : savedPodcasts.date).getTime();
+        if (timeElapsed <= dayInMilliseconds) {
+            setPodcasts(savedPodcasts.podcast);
+            setIsLoading(false);
+        }
+        else {
+            getAllPodcasts().then(function (data) {
+                setPodcasts(data.podcast);
+                localStorage.setItem("podcasts", JSON.stringify({ date: new Date(), podcast: data.podcast }));
+                setIsLoading(false);
+            });
+        }
+    }, []);
+    return [podcasts, setPodcasts, isLoading];
 };
-/* harmony default export */ var header = (Header);
+/* harmony default export */ var use_all_podcast = (useAllPodcasts);
 
-;// CONCATENATED MODULE: ./src/components/header/index.ts
+;// CONCATENATED MODULE: ./src/podcast/hook/index.ts
 
 
 
@@ -10940,18 +11001,22 @@ var home_assign = (undefined && undefined.__assign) || function () {
 
 
 
+
 var Home = function () {
-    var _a = (0,react.useState)(undefined), podcasts = _a[0], setPodcasts = _a[1];
-    var _b = (0,react.useState)(false), isLoading = _b[0], setIsLoading = _b[1];
+    var _a = use_all_podcast(), podcasts = _a[0], isLoading = _a[2];
+    var _b = (0,react.useState)(), currentPodcasts = _b[0], setCurrentPodcasts = _b[1];
     (0,react.useEffect)(function () {
-        setIsLoading(true);
-        getAllPodcasts().then(function (data) {
-            setPodcasts(data.podcast);
-            setIsLoading(false);
+        setCurrentPodcasts(podcasts);
+    }, [podcasts]);
+    var handleChangeFilterText = function (text) {
+        var filterText = text.toLowerCase();
+        var filterPodcast = podcasts === null || podcasts === void 0 ? void 0 : podcasts.filter(function (podcast) {
+            return podcast.name.toLowerCase().match(filterText) || podcast.artist.toLowerCase().match(filterText);
         });
-    }, []);
-    return ((0,jsx_runtime.jsxs)("div", home_assign({ className: "home-container", "data-testid": "home-page" }, { children: [(0,jsx_runtime.jsx)(header, { isLoading: isLoading }), (0,jsx_runtime.jsx)("div", home_assign({ className: "podcastListContainer" }, { children: podcasts &&
-                    podcasts.map(function (podcast) {
+        setCurrentPodcasts(filterPodcast);
+    };
+    return ((0,jsx_runtime.jsxs)("div", home_assign({ className: "home-container", "data-testid": "home-page" }, { children: [(0,jsx_runtime.jsx)(header, { isLoading: isLoading }), (0,jsx_runtime.jsx)(filter, { onChange: handleChangeFilterText, podcastNumber: !!currentPodcasts ? "".concat(currentPodcasts === null || currentPodcasts === void 0 ? void 0 : currentPodcasts.length) : undefined }), (0,jsx_runtime.jsx)("div", home_assign({ className: "podcastListContainer" }, { children: currentPodcasts &&
+                    currentPodcasts.map(function (podcast) {
                         return (0,jsx_runtime.jsx)(Link, home_assign({ to: "/podcast/".concat(podcast.id), state: { podcastId: podcast.id }, className: "podcastListItem" }, { children: (0,jsx_runtime.jsx)(podcast_item, { image: podcast.image[2], name: podcast.name, artist: podcast.artist }) }), podcast.id);
                     }) }))] })));
 };
@@ -11177,6 +11242,19 @@ var getEpisodesFromItunes = function (podcastId) { return get_episodes_awaiter(v
         }
     });
 }); };
+var getSingleEpisode = function (podcastId, episodeId) { return get_episodes_awaiter(void 0, void 0, void 0, function () {
+    var allEpisodes, selectedEpisode;
+    return get_episodes_generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                allEpisodes = getEpisodesFromItunes(podcastId);
+                return [4 /*yield*/, allEpisodes];
+            case 1:
+                selectedEpisode = (_a.sent()).filter(function (filteredEpisode) { return filteredEpisode.id === episodeId; });
+                return [2 /*return*/, selectedEpisode];
+        }
+    });
+}); };
 
 ;// CONCATENATED MODULE: ./src/episode/service/index.ts
 
@@ -11186,8 +11264,76 @@ var getEpisodesFromItunes = function (podcastId) { return get_episodes_awaiter(v
 var getAllEpisodes = function (podcastId) {
     return getEpisodesFromItunes(podcastId);
 };
+var getEpisodeById = function (podcastId, episodeId) {
+    return getSingleEpisode(podcastId, episodeId);
+};
 
 ;// CONCATENATED MODULE: ./src/episode/use-case/index.ts
+
+
+;// CONCATENATED MODULE: ./src/episode/hook/use-all-episodes.ts
+
+
+var useAllEpisodes = function (podcastId) {
+    var _a = (0,react.useState)([]), episodes = _a[0], setEpisodes = _a[1];
+    var _b = (0,react.useState)(true), isLoading = _b[0], setIsLoading = _b[1];
+    var dayInMilliseconds = 24 * 60 * 60 * 1000;
+    (0,react.useEffect)(function () {
+        if (!podcastId) {
+            setIsLoading(false);
+            return;
+        }
+        var storedEpisodes = localStorage.getItem("".concat(podcastId, "-episodes"));
+        var savedEpisodes = storedEpisodes ? JSON.parse(storedEpisodes) : undefined;
+        var timeElapsed = new Date().getTime() - new Date(savedEpisodes === null || savedEpisodes === void 0 ? void 0 : savedEpisodes.date).getTime();
+        if (timeElapsed < dayInMilliseconds) {
+            setEpisodes(savedEpisodes.episodes);
+            setIsLoading(false);
+        }
+        else {
+            getAllEpisodes(Number(podcastId)).then(function (data) {
+                data.shift();
+                setEpisodes(data);
+                localStorage.setItem("".concat(podcastId, "-episodes"), JSON.stringify({ date: new Date(), episodes: data }));
+                setIsLoading(false);
+            });
+        }
+    }, [podcastId]);
+    return [episodes, setEpisodes, isLoading];
+};
+/* harmony default export */ var use_all_episodes = (useAllEpisodes);
+
+;// CONCATENATED MODULE: ./src/episode/hook/use-single-episode.ts
+
+
+var useSingleEpisode = function (podcastId, episodeId) {
+    var _a = (0,react.useState)(), episode = _a[0], setEpisode = _a[1];
+    var _b = (0,react.useState)(true), isLoading = _b[0], setIsLoading = _b[1];
+    (0,react.useEffect)(function () {
+        if (!podcastId || !episodeId) {
+            setIsLoading(false);
+            return;
+        }
+        var storedEpisodes = localStorage.getItem("".concat(podcastId, "-episodes"));
+        var savedEpisodes = storedEpisodes ? JSON.parse(storedEpisodes) : undefined;
+        var episode = savedEpisodes.episodes.filter(function (filteredEpisode) { return filteredEpisode.id === Number(episodeId); });
+        if (episode) {
+            setEpisode(episode[0]);
+            setIsLoading(false);
+        }
+        else {
+            getEpisodeById(Number(podcastId), Number(episodeId)).then(function (data) {
+                setEpisode(data[0]);
+                setIsLoading(false);
+            });
+        }
+    }, [episodeId, podcastId]);
+    return [episode, setEpisode, isLoading];
+};
+/* harmony default export */ var use_single_episode = (useSingleEpisode);
+
+;// CONCATENATED MODULE: ./src/episode/hook/index.ts
+
 
 
 ;// CONCATENATED MODULE: ./src/podcast/component/podcast-card/podcast-card.tsx
@@ -11209,7 +11355,7 @@ var podcast_card_assign = (undefined && undefined.__assign) || function () {
 var PodcastCard = function (_a) {
     var image = _a.image, name = _a.name, artist = _a.artist, description = _a.description, id = _a.id;
     var imageUrl = image.label;
-    return ((0,jsx_runtime.jsxs)("div", podcast_card_assign({ className: "podcastCardContainer" }, { children: [(0,jsx_runtime.jsx)(Link, podcast_card_assign({ to: "/podcast/".concat(id), className: "cardImageContainer" }, { children: (0,jsx_runtime.jsx)("img", { src: imageUrl, alt: name, height: 170, width: 170, className: "cardImage" }) })), (0,jsx_runtime.jsxs)(Link, podcast_card_assign({ to: "/podcast/".concat(id), className: "podcastCardTitleBlock" }, { children: [(0,jsx_runtime.jsx)("span", podcast_card_assign({ className: "podcastNameCard" }, { children: name })), (0,jsx_runtime.jsxs)("span", podcast_card_assign({ className: "podcastArtistCard" }, { children: ["by ", artist] }))] })), (0,jsx_runtime.jsxs)("div", podcast_card_assign({ className: "podcastCardDescriptionBlock" }, { children: [(0,jsx_runtime.jsx)("span", podcast_card_assign({ className: "podcastDescriptionLabel" }, { children: "Description:" })), (0,jsx_runtime.jsx)("span", podcast_card_assign({ className: "podcastDescriptionText" }, { children: description }))] }))] })));
+    return ((0,jsx_runtime.jsxs)("div", podcast_card_assign({ className: "podcastCardContainer" }, { children: [(0,jsx_runtime.jsx)(Link, podcast_card_assign({ to: "/podcast/".concat(id), className: "cardImageContainer", "data-testid": "podcast-details-photo-url" }, { children: (0,jsx_runtime.jsx)("img", { src: imageUrl, alt: name, height: 170, width: 170, className: "cardImage" }) })), (0,jsx_runtime.jsxs)(Link, podcast_card_assign({ to: "/podcast/".concat(id), className: "podcastCardTitleBlock", "data-testid": "podcast-details-text-url" }, { children: [(0,jsx_runtime.jsx)("span", podcast_card_assign({ className: "podcastNameCard" }, { children: name })), (0,jsx_runtime.jsxs)("span", podcast_card_assign({ className: "podcastArtistCard" }, { children: ["by ", artist] }))] })), (0,jsx_runtime.jsxs)("div", podcast_card_assign({ className: "podcastCardDescriptionBlock" }, { children: [(0,jsx_runtime.jsx)("span", podcast_card_assign({ className: "podcastDescriptionLabel" }, { children: "Description:" })), (0,jsx_runtime.jsx)("span", podcast_card_assign({ className: "podcastDescriptionText" }, { children: description }))] }))] })));
 };
 /* harmony default export */ var podcast_card = (PodcastCard);
 
@@ -11236,41 +11382,41 @@ var podcast_details_assign = (undefined && undefined.__assign) || function () {
 
 
 
-
 var PodcastDetails = function () {
-    var location = dist_useLocation();
-    var url = location.pathname;
-    var podcastId = url.split('/').pop();
-    var _a = (0,react.useState)(undefined), episodes = _a[0], setEpisodes = _a[1];
-    var _b = (0,react.useState)(undefined), podcast = _b[0], setPodcast = _b[1];
-    var _c = (0,react.useState)(false), isLoading = _c[0], setIsLoading = _c[1];
-    (0,react.useEffect)(function () {
-        if (podcastId) {
-            getSinglePodcast(podcastId).then(function (data) {
-                setPodcast(data[0]);
-            });
-        }
-    }, [podcastId]);
-    (0,react.useEffect)(function () {
-        getAllEpisodes(Number(podcastId)).then(function (data) {
-            //This because the first object is some data from the podcast that we already have
-            data.shift();
-            setEpisodes(data);
-        });
-    }, [podcastId]);
-    (0,react.useEffect)(function () {
-        setIsLoading(true);
-        if (episodes && podcast) {
-            setIsLoading(false);
-        }
-    }, [episodes, podcast]);
-    return ((0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)(header, { isLoading: isLoading }), (0,jsx_runtime.jsxs)("div", podcast_details_assign({ className: 'podcastDetailsContainer' }, { children: [podcast &&
+    var podcastId = useParams().podcastId;
+    var _a = use_all_episodes(podcastId), episodes = _a[0], isLoadingEpisodes = _a[2];
+    var _b = use_single_podcast(podcastId), podcast = _b[0], isLoadingPodcast = _b[2];
+    return ((0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)(header, { isLoading: isLoadingEpisodes || isLoadingPodcast }), (0,jsx_runtime.jsxs)("div", podcast_details_assign({ className: 'podcastDetailsContainer' }, { children: [podcast &&
                         (0,jsx_runtime.jsx)("div", { children: (0,jsx_runtime.jsx)(podcast_card, { image: podcast.image[2], name: podcast.name, artist: podcast.artist, description: podcast.summary, id: podcast.id }) }), episodes &&
                         (0,jsx_runtime.jsx)("div", podcast_details_assign({ className: "listContainer" }, { children: (0,jsx_runtime.jsx)(episode_list, { episodes: episodes }) }))] }))] }));
 };
 /* harmony default export */ var podcast_details = (PodcastDetails);
 
 ;// CONCATENATED MODULE: ./src/pages/podcast-details/index.ts
+
+
+;// CONCATENATED MODULE: ./src/episode/component/episode-card/episode-card.tsx
+var episode_card_assign = (undefined && undefined.__assign) || function () {
+    episode_card_assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return episode_card_assign.apply(this, arguments);
+};
+
+
+var EpisodeCard = function (_a) {
+    var episode = _a.episode;
+    return ((0,jsx_runtime.jsxs)("div", episode_card_assign({ className: "episodeCardContainer" }, { children: [(0,jsx_runtime.jsx)("span", episode_card_assign({ className: "episodeCardTitle" }, { children: episode.name })), (0,jsx_runtime.jsx)("span", { dangerouslySetInnerHTML: { __html: episode.description || "" }, className: "episodeCardDescription" }), (0,jsx_runtime.jsx)("audio", episode_card_assign({ controls: true, className: 'episodeReproductor', "data-testid": "audio-player" }, { children: (0,jsx_runtime.jsx)("source", { src: episode.episodeUrl, type: "audio/mpeg" }) }))] })));
+};
+/* harmony default export */ var episode_card = (EpisodeCard);
+
+;// CONCATENATED MODULE: ./src/episode/component/episode-card/index.ts
+
 
 
 ;// CONCATENATED MODULE: ./src/pages/episode-details/episode-details.tsx
@@ -11286,8 +11432,20 @@ var episode_details_assign = (undefined && undefined.__assign) || function () {
     return episode_details_assign.apply(this, arguments);
 };
 
+
+
+
+
+
+
+
 var EpisodeDetails = function () {
-    return ((0,jsx_runtime.jsx)("div", episode_details_assign({ className: 'episodeDetails-container' }, { children: (0,jsx_runtime.jsx)("p", { children: "Episode Details" }) })));
+    var _a = useParams(), podcastId = _a.podcastId, episodeId = _a.episodeId;
+    var _b = use_single_episode(podcastId, episodeId), episode = _b[0], isEpisodeLoading = _b[2];
+    var _c = use_single_podcast(podcastId), podcast = _c[0], isPodcastLoading = _c[2];
+    return ((0,jsx_runtime.jsxs)("div", { children: [(0,jsx_runtime.jsx)(header, { isLoading: isEpisodeLoading || isPodcastLoading }), (0,jsx_runtime.jsxs)("div", episode_details_assign({ className: 'episodeDetailsContainer' }, { children: [podcast &&
+                        (0,jsx_runtime.jsx)("div", { children: (0,jsx_runtime.jsx)(podcast_card, { image: podcast.image[2], name: podcast.name, artist: podcast.artist, description: podcast.summary, id: podcast.id }) }), episode &&
+                        (0,jsx_runtime.jsx)("div", { children: (0,jsx_runtime.jsx)(episode_card, { episode: episode }) })] }))] }));
 };
 /* harmony default export */ var episode_details = (EpisodeDetails);
 

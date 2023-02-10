@@ -1,15 +1,14 @@
-const path = require("path");
 const webpack = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserJSPlugin = require("terser-webpack-plugin");
 
 module.exports = {
 	mode: "production",
 	entry: "./src/index.tsx",
 	output: {
-		filename: "bundle.[contenthash].tsx",
-		path: path.resolve(__dirname, "dist"),
+		filename: "bundle.tsx",
+		publicPath: "/",
 	},
 	module: {
 		rules: [
@@ -43,13 +42,14 @@ module.exports = {
 	},
 	plugins: [
 		new MiniCssExtractPlugin({
-			filename: "styles.[contenthash].css",
+			filename: "[name].css",
 		}),
+
 		new webpack.DefinePlugin({
 			"process.env.NODE_ENV": JSON.stringify("production"),
 		}),
 	],
 	optimization: {
-		minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+		minimizer: [new TerserJSPlugin({}), new CssMinimizerPlugin()],
 	},
 };

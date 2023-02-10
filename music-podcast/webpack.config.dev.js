@@ -1,12 +1,11 @@
-const path = require("path");
 const webpack = require("webpack");
 
 module.exports = {
   mode: "development",
   entry: "./src/index.tsx",
   output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "dist"),
+    filename: "bundle.tsx",
+    publicPath: "/",
   },
   module: {
     rules: [
