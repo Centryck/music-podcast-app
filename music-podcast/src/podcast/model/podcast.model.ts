@@ -21,8 +21,13 @@ export interface RawPodcast {
 	podcast: Podcast[];
 }
 
-export interface LocalStoragePodcast {
+export interface LocalStoragePodcasts {
 	podcast: Podcast[];
+	date: Date;
+}
+
+export interface LocalStorageSinglePodcast {
+	podcast: Podcast;
 	date: Date;
 }
 

@@ -8,3 +8,13 @@ export interface Episode {
 	episodeUrl?: string;
 	trackTimeMillis: number;
 }
+
+export interface LocalStorageEpisodes {
+	episodes: Episode[];
+	date: Date;
+}
+
+export interface LocalStorageSingleEpisode {
+	episode: Episode;
+	date: Date;
+}
